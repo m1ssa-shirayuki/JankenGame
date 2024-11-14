@@ -5,8 +5,9 @@ from janken_judge import judge
 def janken_main():
     user_wins = 0
     cpu_wins = 0
+    rounds_played = 0
 
-    for _ in range(3):
+    while rounds_played < 3:
         user_hand = human_pon()
         cpu_hand = cpu_pon()
 
@@ -17,8 +18,12 @@ def janken_main():
 
         if result == "あなたの勝ち":
             user_wins += 1
+            rounds_played += 1
         elif result == "コンピュータの勝ち":
             cpu_wins += 1
+            rounds_played += 1
+        else:
+            print("あいこ！もう一度！")
 
     print("\n最終結果:")
     print(f"あなたの勝ち数: {user_wins}")
